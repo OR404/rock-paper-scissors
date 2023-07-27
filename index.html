@@ -81,17 +81,19 @@ function gameRound(playerSelection,computerSelection) {
             const winnerMessage = gameRound(playerSelection,computerSelection);
             
         if(winnerMessage.includes("Won")){
-            console.log(`You won round ${totalRounds}!`);
+            console.log(`Round ${totalRounds} is a win!`);
             playerScore++;
         }
             else if(winnerMessage.includes("Lose")) {
-                console.log(`You lose round ${totalRounds}!`);
+                console.log(`round ${totalRounds} is a loss!`);
                 computerScore++;
             }
             else {
                 console.log(`Round ${totalRounds} is a tie!`);
             }
+
             totalRounds++;
+            console.log(`CURRENT SCORE: \n player:${playerScore} \n computer:${computerScore}`)
         }
 
         if(playerScore>computerScore) {
