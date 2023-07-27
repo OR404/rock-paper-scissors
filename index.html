@@ -33,37 +33,37 @@ function gameRound(playerSelection,computerSelection) {
 
     if(playerSelection==='rock') { //scenario where player chose rock
         if(computerSelection==='scissors') {
-        return("You Won! Rock beats Scissors");
+        return("W");
     }
     else if(computerSelection==='paper') {
-        return("You Lose! Paper beats Rock");
+        return("L");
     }
     else {
-        return("its a tie!");
+        return("T");
     }
     }
 
     if(playerSelection==='scissors') { //scenario where player chose scissors
         if(computerSelection==='paper') {
-       return("You Won! Scissors beats Paper");
+       return("W");
     }
     else if(computerSelection==='rock') {
-        return("You Lose! Rock beats Scissors");
+        return("L");
     }
     else {
-       return("its a tie!");
+       return("T");
     }
     }
-
+    
     if(playerSelection==='paper') { //scenario where player chose paper
         if(computerSelection==='rock') {
-       return("You Won! Paper beats Rock");
+       return("W");
     }
     else if(computerSelection==='scissors') {
-        return("You Lose! Scissors beats Paper");
+        return("L");
     }
     else {
-        return("its a tie!");
+        return("T");
     }
     }
     }
@@ -80,11 +80,11 @@ function gameRound(playerSelection,computerSelection) {
 
             const winnerMessage = gameRound(playerSelection,computerSelection);
             
-        if(winnerMessage.includes("Won")){
+        if(winnerMessage==='W'){
             console.log(`Round ${totalRounds} is a win!`);
             playerScore++;
         }
-            else if(winnerMessage.includes("Lose")) {
+            else if(winnerMessage==='L') {
                 console.log(`round ${totalRounds} is a loss!`);
                 computerScore++;
             }
@@ -93,7 +93,7 @@ function gameRound(playerSelection,computerSelection) {
             }
 
             totalRounds++;
-            console.log(`CURRENT SCORE: \n player:${playerScore} \n computer:${computerScore}`)
+            console.log(`CURRENT SCORE \n player:${playerScore} \n computer:${computerScore}`)
         }
 
         if(playerScore>computerScore) {
