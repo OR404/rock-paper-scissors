@@ -10,7 +10,7 @@
 
 <script>
 
-function getComputerChoice() { //randomly choses r,p,s to opponent
+function getComputerChoice() { //randomly chooses r,p,s to opponent
 let computerChoice;
 let randomNum = Math.floor(Math.random()*3)+1;
 
@@ -69,7 +69,7 @@ function gameRound(playerSelection,computerSelection) {
     }
 
 
-    function game() {
+    function game() { //runs 5 rounds and states round winner, match winner and score
         let playerScore= 0;
         let computerScore = 0;
         let totalRounds = 1;
@@ -110,11 +110,6 @@ function gameRound(playerSelection,computerSelection) {
 
 
 
-
-
-
-
-//onsole.log(gameRound(playerSelection,computerSelection));
 game();
 
 
