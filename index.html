@@ -13,9 +13,9 @@
 
 <div class="buttons">
 
-<button id="1">ROCK</button>
-<button id="2">PAPER</button>
-<button id="3">SCISSORS</button>
+<button id="btnR">ROCK</button>
+<button id="btnP">PAPER</button>
+<button id="btnS">SCISSORS</button>
 
 
 
@@ -34,9 +34,28 @@
 
 
 
-<!--<script>
+<script>
+    const btnR = document.querySelector('#btnR');
+    const btnP = document.querySelector('#btnP');
+    const btnS = document.querySelector('#btnS');
 
-function getComputerChoice() { //randomly chooses r,p,s to opponent
+    btn1.addEventListener('click' ,gameRound() )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* function getComputerChoice() { //randomly chooses r,p,s to opponent
 let computerChoice;
 let randomNum = Math.floor(Math.random()*3)+1;
 
@@ -136,12 +155,12 @@ function gameRound(playerSelection,computerSelection) {
 
 
 
-game();
+game(); */
 
 
 
 
-    </script>-->
+    </script>
 
 
 </body>
