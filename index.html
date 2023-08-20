@@ -35,27 +35,16 @@
 
 
 <script>
-    const btnR = document.querySelector('#btnR');
+
+const btnR = document.querySelector('#btnR');
     const btnP = document.querySelector('#btnP');
     const btnS = document.querySelector('#btnS');
 
-    btnR.addEventListener('click' ,gameRound('ROCK',getComputerChoice()));
-    btnP.addEventListener('click' ,gameRound('PAPER',getComputerChoice()));
-    btnS.addEventListener('click' ,gameRound('SCISSORS',getComputerChoice()));
+    btnR.addEventListener('click' ,()=>{console.log(gameRound('ROCK',getComputerChoice()))});
+    btnP.addEventListener('click' ,()=>{console.log(gameRound('PAPER',getComputerChoice()))});
+    btnS.addEventListener('click' ,()=>{console.log(gameRound('SCISSORS',getComputerChoice()))});
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+    
 
 
  function getComputerChoice() { //randomly chooses r,p,s to opponent
@@ -76,8 +65,10 @@ return computerChoice;
 }
 
 function gameRound(playerSelection,computerSelection) {
-    
+
     playerSelection=playerSelection.toLowerCase();
+    console.log(`YOUR SELECTION ${playerSelection}`);
+    console.log(`COMPUTER SELECTION: ${computerSelection}`);
 
     if(playerSelection==='rock') { //scenario where player chose rock
         if(computerSelection==='scissors') {
@@ -115,6 +106,8 @@ function gameRound(playerSelection,computerSelection) {
     }
     }
     }
+
+    
 
 
     /*function game() { //runs 5 rounds and states round winner, match winner and score
