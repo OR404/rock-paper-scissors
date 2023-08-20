@@ -1,0 +1,22 @@
+h1 {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    gap:50px;
+    
+}
+
+.buttons>button {
+    height:100px;
+    width: 200px;
+    font-weight: bold;
+    background-color: bisque;
+    border-radius: 8px;
+
+}
+
