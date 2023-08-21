@@ -17,32 +17,47 @@
 <button id="btnP">PAPER</button>
 <button id="btnS">SCISSORS</button>
 
+</div>
 
+<div class="match">
+    <div class="player-selection-container"></div>
+                <p>VS</p>
+    <div class="computer-selection-container"></div>
 
 </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 <script>
 
-const btnR = document.querySelector('#btnR');
+    const btnR = document.querySelector('#btnR');
     const btnP = document.querySelector('#btnP');
     const btnS = document.querySelector('#btnS');
+    const playerSelectionContainer = document.querySelector('.player-selection-container');
+    const computerSelectionContainer = document.querySelector('.computer-selection-container');
 
     btnR.addEventListener('click' ,()=>{console.log(gameRound('ROCK',getComputerChoice()))});
     btnP.addEventListener('click' ,()=>{console.log(gameRound('PAPER',getComputerChoice()))});
     btnS.addEventListener('click' ,()=>{console.log(gameRound('SCISSORS',getComputerChoice()))});
+
+    function setPlayerChoice(playerChoice) {
+
+        if(playerSelectionContainer.childNodes.length>0) {
+            playerSelectionContainer.removeChild(playerImage);
+        }
+
+
+        let playerImage = document.createElement('img');
+
+        if(playerChoice==='rock') {      
+       playerImage.setAttribute('src','images/rock.jpeg');
+        }
+        else if (playerChoice==='scissors') {
+            playerImage.setAttribute('src','images/scissors.jpeg');
+        }
+        else if(playerChoice==='paper') {
+            playerImage.setAttribute('src','images/paper.jpeg')
+        }
+        playerSelectionContainer.appendChild(playerImage);
+    }
 
     
 
@@ -64,13 +79,17 @@ else {
 return computerChoice;
 }
 
+
+
 function gameRound(playerSelection,computerSelection) {
 
     playerSelection=playerSelection.toLowerCase();
     console.log(`YOUR SELECTION ${playerSelection}`);
     console.log(`COMPUTER SELECTION: ${computerSelection}`);
+    setPlayerChoice(playerSelection);
 
     if(playerSelection==='rock') { //scenario where player chose rock
+
         if(computerSelection==='scissors') {
         return("W");
     }
