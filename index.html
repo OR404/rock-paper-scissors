@@ -31,6 +31,7 @@
 </div>
 
 <script>
+    let winner = '';
     const btnR = document.querySelector('#btnR');
     const btnP = document.querySelector('#btnP');
     const btnS = document.querySelector('#btnS');
@@ -54,11 +55,7 @@
         else if(choice==='paper') {
             choiceImage.setAttribute('src','images/paper.jpeg')
         }
-
         return choiceImage;
-        
-
-        //playerSelectionContainer.appendChild(playerImage);
     }
     
 
@@ -96,40 +93,71 @@ function gameRound(playerSelection,computerSelection) {
     if(playerSelection==='rock') { //scenario where player chose rock
 
         if(computerSelection==='scissors') {
-        return("W");
+        winner='player';
     }
     else if(computerSelection==='paper') {
-        return("L");
+        winner='computer';
     }
     else {
-        return("T");
+        winner='tie';
     }
     }
 
     if(playerSelection==='scissors') { //scenario where player chose scissors
         if(computerSelection==='paper') {
-       return("W");
+            winner='player';
     }
     else if(computerSelection==='rock') {
-        return("L");
+        winner='computer';
     }
     else {
-       return("T");
+        winner='tie';
     }
     }
     
     if(playerSelection==='paper') { //scenario where player chose paper
         if(computerSelection==='rock') {
-       return("W");
+        winner='player';
     }
     else if(computerSelection==='scissors') {
-        return("L");
+        winner='computer';
     }
     else {
-        return("T");
+        winner='tie';
     }
     }
+    let playerResultsBox = document.querySelector('.results');
+    let playerResultsMessage = document.querySelector('.results>p');
+
+    if(winner==='player') {
+        playerResultsBox.style.backgroundColor = 'green';
+        playerResultsMessage.textContent = 'You Won!!!';
+        playerResultsMessage.style.fontSize = '50px';
+        playerResultsMessage.style.fontWeight = 'bold';
     }
+    else if(winner==='computer') {
+        playerResultsBox.style.backgroundColor = 'red';
+        playerResultsMessage.textContent = 'You Lost!!!';
+        playerResultsMessage.style.fontSize = '50px';
+        playerResultsMessage.style.fontWeight = 'bold';
+    }
+    else if(winner==='tie') {
+        playerResultsBox.style.backgroundColor = 'yellow';
+        playerResultsMessage.textContent = 'Its A Tie!!!';
+        playerResultsMessage.style.fontSize = '50px';
+        playerResultsMessage.style.fontWeight = 'bold';
+
+
+
+    }
+
+
+
+    }
+
+   
+
+
 
     
 
