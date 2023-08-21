@@ -27,7 +27,6 @@
 </div>
 
 <script>
-
     const btnR = document.querySelector('#btnR');
     const btnP = document.querySelector('#btnP');
     const btnS = document.querySelector('#btnS');
@@ -38,26 +37,26 @@
     btnP.addEventListener('click' ,()=>{console.log(gameRound('PAPER',getComputerChoice()))});
     btnS.addEventListener('click' ,()=>{console.log(gameRound('SCISSORS',getComputerChoice()))});
 
-    function setPlayerChoice(playerChoice) {
+    function setChoice(choice) {
 
-        if(playerSelectionContainer.childNodes.length>0) {
-            playerSelectionContainer.removeChild(playerImage);
+        let choiceImage = document.createElement('img');
+
+        if(choice==='rock') {      
+            choiceImage.setAttribute('src','images/rock.jpeg');
+        }
+        else if (choice==='scissors') {
+            choiceImage.setAttribute('src','images/scissors.jpeg');
+        }
+        else if(choice==='paper') {
+            choiceImage.setAttribute('src','images/paper.jpeg')
         }
 
+        return choiceImage;
+        
 
-        let playerImage = document.createElement('img');
-
-        if(playerChoice==='rock') {      
-       playerImage.setAttribute('src','images/rock.jpeg');
-        }
-        else if (playerChoice==='scissors') {
-            playerImage.setAttribute('src','images/scissors.jpeg');
-        }
-        else if(playerChoice==='paper') {
-            playerImage.setAttribute('src','images/paper.jpeg')
-        }
-        playerSelectionContainer.appendChild(playerImage);
+        //playerSelectionContainer.appendChild(playerImage);
     }
+    
 
     
 
@@ -86,7 +85,9 @@ function gameRound(playerSelection,computerSelection) {
     playerSelection=playerSelection.toLowerCase();
     console.log(`YOUR SELECTION ${playerSelection}`);
     console.log(`COMPUTER SELECTION: ${computerSelection}`);
-    setPlayerChoice(playerSelection);
+
+    playerSelectionContainer.appendChild(setChoice(playerSelection));
+    computerSelectionContainer.appendChild(setChoice(computerSelection));
 
     if(playerSelection==='rock') { //scenario where player chose rock
 

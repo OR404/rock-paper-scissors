@@ -1,3 +1,4 @@
+
 h1 {
     text-align: center;
     text-decoration: underline;
@@ -24,6 +25,7 @@ h1 {
     display: flex;
     justify-content: center;
     margin-top: 300px;
+    gap: 40px;
 }
 
 .match>p {
@@ -31,3 +33,9 @@ h1 {
     font-weight: bold;
 }
 
+img {
+    width:400px;
+    height: 300px;
+    border: 2mm solid black;
+    border-radius: 5px;
+}
