@@ -12,11 +12,9 @@
 <h1>Rock Paper Scissors!!!</h1>
 
 <div class="buttons">
-
 <button id="btnR">ROCK</button>
 <button id="btnP">PAPER</button>
 <button id="btnS">SCISSORS</button>
-
 </div>
 
 <div class="match">
@@ -32,11 +30,15 @@
 </div>
 
 <div class="results">
-    <p>Waiting for player selection...</p>
+    <p class ="p1">Waiting for player selection...</p>
+    <p class = "p2"></p>
 
 </div>
 
 <script>
+
+     let playerScore = 0;
+    let computerScore = 0;
     let winner = '';
     const btnR = document.querySelector('#btnR');
     const btnP = document.querySelector('#btnP');
@@ -51,8 +53,8 @@
     function setChoice(choice) {
 
        if(playerSelectionContainer.querySelector('img') && computerSelectionContainer.querySelector('img')) {
-        playerSelectionContainer.removeChild(playerSelectionContainer.firstChild);
-        computerSelectionContainer.removeChild(computerSelectionContainer.firstChild);
+        playerSelectionContainer.removeChild(playerSelectionContainer.querySelector('img'));
+        computerSelectionContainer.removeChild(computerSelectionContainer.querySelector('img'));
     }
 
         let choiceImage = document.createElement('img');
@@ -93,18 +95,19 @@ return computerChoice;
 
 
 function gameRound(playerSelection,computerSelection) {
-
     playerSelection=playerSelection.toLowerCase();
     playerSelectionContainer.appendChild(setChoice(playerSelection));
     computerSelectionContainer.appendChild(setChoice(computerSelection));
-
+    
     if(playerSelection==='rock') { //scenario where player chose rock
 
         if(computerSelection==='scissors') {
         winner='player';
+        playerScore++;
     }
     else if(computerSelection==='paper') {
         winner='computer';
+        computerScore++;
     }
     else {
         winner='tie';
@@ -134,32 +137,46 @@ function gameRound(playerSelection,computerSelection) {
         winner='tie';
     }
     }
+
     let playerResultsBox = document.querySelector('.results');
-    let playerResultsMessage = document.querySelector('.results>p');
+
+    let resetButton = document.createElement('button');
+    resetButton.textContent = 'RESET SCORE';
+    resetButton.style.fontWeight = 'bold';
+    resetButton.style.height = '80px';
+    resetButton.style.width = '160px';
+    resetButton.style.border = '0.8mm solid black';
+    resetButton.style.borderRadius = '8px';
+    resetButton.style.padding = '5px';
+    resetButton.style.backgroundColor = 'rgb(255,228,196)';
+
+    if(!playerResultsBox.querySelector('button')) {
+        playerResultsBox.appendChild(resetButton);
+    }
+
+
+
+    let playerResultsMessage = document.querySelector('.results>.p1');
+    let playerScoreBoard = document.querySelector('.results>.p2');
+    playerResultsMessage.style.fontSize = '50px';
+    playerResultsMessage.style.fontWeight = 'bold';
+    playerScoreBoard.style.fontSize = '40px';
 
     if(winner==='player') {
         playerResultsBox.style.backgroundColor = 'green';
         playerResultsMessage.textContent = 'You Won!!!';
-        playerResultsMessage.style.fontSize = '50px';
-        playerResultsMessage.style.fontWeight = 'bold';
+       playerScoreBoard.textContent = `${playerScore}-${computerScore}`;
     }
     else if(winner==='computer') {
         playerResultsBox.style.backgroundColor = 'red';
         playerResultsMessage.textContent = 'You Lost!!!';
-        playerResultsMessage.style.fontSize = '50px';
-        playerResultsMessage.style.fontWeight = 'bold';
+        playerScoreBoard.textContent = `${playerScore}-${computerScore}`;
     }
     else if(winner==='tie') {
         playerResultsBox.style.backgroundColor = 'yellow';
-        playerResultsMessage.textContent = 'Its A Tie!!!';
-        playerResultsMessage.style.fontSize = '50px';
-        playerResultsMessage.style.fontWeight = 'bold';
-
-
-
+        playerResultsMessage.textContent = `Its A Tie!!!`;
+        playerScoreBoard.textContent = `${playerScore}-${computerScore}`;
     }
-
-
 
     }
 
