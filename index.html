@@ -50,6 +50,11 @@
 
     function setChoice(choice) {
 
+       if(playerSelectionContainer.querySelector('img') && computerSelectionContainer.querySelector('img')) {
+        playerSelectionContainer.removeChild(playerSelectionContainer.firstChild);
+        computerSelectionContainer.removeChild(computerSelectionContainer.firstChild);
+    }
+
         let choiceImage = document.createElement('img');
 
         if(choice==='rock') {      
@@ -90,9 +95,6 @@ return computerChoice;
 function gameRound(playerSelection,computerSelection) {
 
     playerSelection=playerSelection.toLowerCase();
-    console.log(`YOUR SELECTION ${playerSelection}`);
-    console.log(`COMPUTER SELECTION: ${computerSelection}`);
-
     playerSelectionContainer.appendChild(setChoice(playerSelection));
     computerSelectionContainer.appendChild(setChoice(computerSelection));
 
