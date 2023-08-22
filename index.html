@@ -49,7 +49,7 @@
     btnR.addEventListener('click' ,()=>{console.log(gameRound('ROCK',getComputerChoice()))});
     btnP.addEventListener('click' ,()=>{console.log(gameRound('PAPER',getComputerChoice()))});
     btnS.addEventListener('click' ,()=>{console.log(gameRound('SCISSORS',getComputerChoice()))});
-
+    
     function setChoice(choice) {
 
        if(playerSelectionContainer.querySelector('img') && computerSelectionContainer.querySelector('img')) {
@@ -92,8 +92,6 @@ else {
 return computerChoice;
 }
 
-
-
 function gameRound(playerSelection,computerSelection) {
     playerSelection=playerSelection.toLowerCase();
     playerSelectionContainer.appendChild(setChoice(playerSelection));
@@ -117,9 +115,11 @@ function gameRound(playerSelection,computerSelection) {
     if(playerSelection==='scissors') { //scenario where player chose scissors
         if(computerSelection==='paper') {
             winner='player';
+            playerScore++;
     }
     else if(computerSelection==='rock') {
         winner='computer';
+        computerScore++;
     }
     else {
         winner='tie';
@@ -129,9 +129,11 @@ function gameRound(playerSelection,computerSelection) {
     if(playerSelection==='paper') { //scenario where player chose paper
         if(computerSelection==='rock') {
         winner='player';
+        playerScore++;
     }
     else if(computerSelection==='scissors') {
         winner='computer';
+        computerScore++;
     }
     else {
         winner='tie';
@@ -149,13 +151,10 @@ function gameRound(playerSelection,computerSelection) {
     resetButton.style.borderRadius = '8px';
     resetButton.style.padding = '5px';
     resetButton.style.backgroundColor = 'rgb(255,228,196)';
-
     if(!playerResultsBox.querySelector('button')) {
         playerResultsBox.appendChild(resetButton);
     }
-
-
-
+    
     let playerResultsMessage = document.querySelector('.results>.p1');
     let playerScoreBoard = document.querySelector('.results>.p2');
     playerResultsMessage.style.fontSize = '50px';
@@ -177,6 +176,10 @@ function gameRound(playerSelection,computerSelection) {
         playerResultsMessage.textContent = `Its A Tie!!!`;
         playerScoreBoard.textContent = `${playerScore}-${computerScore}`;
     }
+
+    /*resetButton.addEventListener('click',()=>{
+        computerScore = 0;
+        playerScore = 0;});*/
 
     }
 
