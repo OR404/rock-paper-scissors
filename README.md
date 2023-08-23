@@ -1,2 +1,1 @@
-# rock-paper-scissors
-first JS project(no ui)
+very messy project , code is garbage , but works .

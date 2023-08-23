@@ -176,10 +176,20 @@ function gameRound(playerSelection,computerSelection) {
         playerResultsMessage.textContent = `Its A Tie!!!`;
         playerScoreBoard.textContent = `${playerScore}-${computerScore}`;
     }
+    setTimeout(()=>matchWinner(), 2000);
 
-    /*resetButton.addEventListener('click',()=>{
-        computerScore = 0;
-        playerScore = 0;});*/
+   
+
+   }
+
+   
+   function matchWinner () {
+    if(playerScore===5) {
+        alert('YOU WON THE MATCH');
+    }
+    else if (computerScore===5) {
+        alert('YOU LOST THE MATCH');
+    }
 
     }
 
